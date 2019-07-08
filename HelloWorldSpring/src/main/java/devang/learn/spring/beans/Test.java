@@ -1,0 +1,7 @@
+package devang.learn.spring.beans;
+
+public class Test {
+	public void hello() {
+		System.out.println("Hello Spring");
+	}
+}
