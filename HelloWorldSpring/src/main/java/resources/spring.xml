@@ -1,5 +1,7 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
 			"https://www.springframework.org/dtd/spring-beans-2.0.dtd">
 <beans>
-	<bean id="t" class="devang.learn.spring.beans.Test"/>	
+	<!-- to make it singleton scope="singleton" --> 
+	<bean scope="prototype" id="t" class="devang.learn.spring.beans.Test"/>
+	<!-- by default it is singleton -->	
 </beans>
