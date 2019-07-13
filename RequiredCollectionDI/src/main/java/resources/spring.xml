@@ -1,0 +1,31 @@
+<!-- Instead of this dtd in case of Required Collection type we need to use -->
+<!-- <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+			"https://www.springframework.org/dtd/spring-beans-2.0.dtd"> -->
+			
+		
+<beans xmlns="beans-namespace" xmlns:util="" xmlns:xsi="" xmlns:schemaLocation>
+	<bean id="t" class="beans.Test">
+		<property name="fruits">
+			<list>
+				<value>Apple</value>
+				<value>Mango</value>
+			</list>
+		</property>
+		<property name="cricketers">
+			<set>
+				<!-- it is not possible to pass duplicate values in Set -->
+				<value>sachin</value>
+				<value>sehwag</value>
+				<value>sachin</value>
+			</set>
+		</property>
+
+		<property name="cc">
+			<map>
+				<entry key="India" value="Delhi" />
+				<entry key="Pak" value="Islamabad" />
+				<entry key="Canada" value="Ottawa" />
+			</map>
+		</property>
+	</bean>
+</beans>
