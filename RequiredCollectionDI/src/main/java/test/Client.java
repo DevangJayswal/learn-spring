@@ -12,7 +12,5 @@ public class Client {
 		ApplicationContext ap = new ClassPathXmlApplicationContext("resources/spring.xml");
 		Test t = (Test) ap.getBean("t");
 		t.printData();
-
 	}
-
 }
