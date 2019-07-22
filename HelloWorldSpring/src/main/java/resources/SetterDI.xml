@@ -4,9 +4,9 @@
 	<bean id="t" class="devang.learn.spring.beans.SetterDI">
 		
 		<!-- using setter method -->
-		<!-- <property name="pName" value="devang"></property>		
+		<property name="pName" value="devang"></property>		
 		<property name="email" value="dnj@gm.com"></property>
-		<property name="age" value="12"></property> -->
+		<property name="age" value="12"></property>
 		
 		<!-- using parameterised constructor -->
 		<!-- <constructor-arg value="abc"/>
@@ -19,8 +19,8 @@
 		<constructor-arg value="abc@gm"/> -->
 		
 		<!-- ANOTHER WAY: using parameterised constructor -->
-		<constructor-arg value="12" index="1"/>
+		<!-- <constructor-arg value="12" index="1"/>
 		<constructor-arg value="abc@gm" index="2"/>
-		<constructor-arg value="abc" index="0"/>			
+		<constructor-arg value="abc" index="0"/> -->			
 	</bean>
 </beans>

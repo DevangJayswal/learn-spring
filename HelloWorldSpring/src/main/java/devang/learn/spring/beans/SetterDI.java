@@ -5,11 +5,11 @@ public class SetterDI {
 	private int age;
 	private String email;
 	
-	SetterDI(String pName, int age, String email){
-		this.pName = pName;
-		this.age=age;
-		this.email=email;
-	}
+//	SetterDI(String pName, int age, String email){
+//		this.pName = pName;
+//		this.age=age;
+//		this.email=email;
+//	}
 	
 	public void setpName(String name) {
 		this.pName = name;
