@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 // in spring boot mvc we have embedded tomcat, so
 // do not need to add server explicitly
@@ -13,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
 
 	@RequestMapping("home")
-	public String home(String nam, HttpSession session) {		
-		session.setAttribute("na", nam);
-		System.out.println("hi " + nam);
+	public String home(@RequestParam("nam") String myName, HttpSession session) {		
+		session.setAttribute("na", myName);
+		System.out.println("hi " + myName);
 		return "home";
 	}
 }
