@@ -13,12 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
 
 	@RequestMapping("home")
-	public String home(HttpServletRequest request) {
-		String name = request.getParameter("nam");
-		HttpSession session = request.getSession();
-		
-		session.setAttribute("na", name);
-		System.out.println("hi " + name);
+	public String home(String nam, HttpSession session) {		
+		session.setAttribute("na", nam);
+		System.out.println("hi " + nam);
 		return "home";
 	}
 }
