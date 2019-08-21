@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-${na} love JAVA
+${al.aid}, ${al.aname}, ${al.lang} love JAVA
 </body>
 </html>
