@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,13 +35,11 @@ public class AlienController {
 	public ModelAndView getAlien(@RequestParam int aid) {
 		System.out.println("in get alien");
 		ModelAndView mv = new ModelAndView("showAlien.jsp");
-		
-		// orElse and Optional is feature of JAVA 8
-		Alien alien = repo.findById(aid).orElse(new Alien());
+		List<Alien> alien = repo.findByTech("android");
 		mv.addObject(alien);
-		
-		System.out.println("before returning mv");
+
+		System.out.println(alien);
 		return mv;
-	} 
+	}
 
 }
