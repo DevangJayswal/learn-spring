@@ -12,6 +12,7 @@ import com.example.demo.model.Alien;
 // we are not implementing AlienRepo anywhere, Spring Data Rest is responsible for that
 public interface AlienRepo extends CrudRepository<Alien, Integer> {
 
-	List<Alien> findByTech(String string);
+	List<Alien> findByTech(String tech);
+	List<Alien> findByAidGreaterThan(int aid);
 
 }
