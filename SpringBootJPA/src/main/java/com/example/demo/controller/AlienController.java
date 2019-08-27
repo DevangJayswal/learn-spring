@@ -35,9 +35,9 @@ public class AlienController {
 	public ModelAndView getAlien(@RequestParam int aid) {
 		System.out.println("in get alien");
 		ModelAndView mv = new ModelAndView("showAlien.jsp");
-		List<Alien> alien = repo.findByAidGreaterThan(102);
-		mv.addObject(alien);
-		System.out.println(alien);
+//		List<Alien> alien = repo.findByAidGreaterThan(102);
+//		mv.addObject(alien);
+		System.out.println(repo.findByTechSorted("java"));
 		return mv;
 	}
 
