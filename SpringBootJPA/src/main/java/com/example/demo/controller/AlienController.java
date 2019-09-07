@@ -50,5 +50,13 @@ public class AlienController {
 		
 		/* output will be List format in String (Not XML or JSON) */
 	}
+	
+	
+	@RequestMapping("/alien/102")
+	@ResponseBody
+	public String getAlien() {
+		return repo.findById(102).toString();
+		
+	}
 
 }
