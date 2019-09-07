@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.dao.AlienRepo;
@@ -30,15 +31,24 @@ public class AlienController {
 		repo.save(alien);
 		return "home.jsp";
 	}
-
-	@RequestMapping("/getAlien")
-	public ModelAndView getAlien(@RequestParam int aid) {
-		System.out.println("in get alien");
-		ModelAndView mv = new ModelAndView("showAlien.jsp");
-//		List<Alien> alien = repo.findByAidGreaterThan(102);
-//		mv.addObject(alien);
-		System.out.println(repo.findByTechSorted("java"));
-		return mv;
+	
+	
+	// when we have return type as String, it means that we are reurning the view
+	// i.e JSP or any other view
+	// but we in REST we are not concerned about view
+	// we are returning a data, so we need to use @ResponseBody
+	// to inform dispatcher servlet that we are not returning a view
+	// we are returning an actual data
+	@RequestMapping("/aliens")
+	@ResponseBody
+	public String getAliens() {
+		
+		// findAll() returns Iterable 
+		// but we have String return type
+		// so we used toString() to convert
+		return repo.findAll().toString();
+		
+		/* output will be List format in String (Not XML or JSON) */
 	}
 
 }
