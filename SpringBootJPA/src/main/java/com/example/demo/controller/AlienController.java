@@ -5,16 +5,19 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.dao.AlienRepo;
 import com.example.demo.model.Alien;
 
-@Controller
+@RestController
 public class AlienController {
 
 	// it will create object of AlienRepo which extends CrudRepository
@@ -28,23 +31,20 @@ public class AlienController {
 		return "home.jsp";
 	}
 
-	@RequestMapping("/addAlien")
-	public String addAlien(Alien alien) {
+	@PostMapping("/alien")
+	public Alien addAlien(Alien alien) {
 		repo.save(alien);
-		return "home.jsp";
+		System.out.println("aliens saved");
+		return alien;
 	}
-	/* by default "aliens" is attribute of path
-	 * to work only with "xml", we need to add attribute "produces" */
-	@RequestMapping(path="/aliens", produces= {"application/xml"})
-	@ResponseBody
+
+	@GetMapping("/aliens")
 	public List<Alien> getAliens() {
 		return (List<Alien>) repo.findAll();
 	}
-	
+
 	@RequestMapping("/alien/{aid}")
-	@ResponseBody
 	public Optional<Alien> getAlien(@PathVariable("aid") int aid) {
 		return repo.findById(aid);
-		
 	}
 }
