@@ -21,6 +21,14 @@
 
 	<dependencies>
 
+		<!-- adding support for REST XML -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-xml</artifactId>
+			<version>2.9.9</version>
+		</dependency>
+
+
 		<!-- for jsp to work -->
 		<dependency>
 			<groupId>org.apache.tomcat</groupId>
