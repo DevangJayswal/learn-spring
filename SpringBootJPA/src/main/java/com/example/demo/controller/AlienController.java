@@ -33,8 +33,9 @@ public class AlienController {
 		repo.save(alien);
 		return "home.jsp";
 	}
-	
-	@RequestMapping("/aliens")
+	/* by default "aliens" is attribute of path
+	 * to work only with "xml", we need to add attribute "produces" */
+	@RequestMapping(path="/aliens", produces= {"application/xml"})
 	@ResponseBody
 	public List<Alien> getAliens() {
 		return (List<Alien>) repo.findAll();
